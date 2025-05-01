@@ -1,0 +1,215 @@
+:root {
+    /* Modern color palette */
+    --deep-navy: #0a192f;
+    --slate-gray: #172a45;
+    --light-slate: #ccd6f6;
+    --bright-teal: #64ffda;
+    --white: #e6f1ff;
+    
+    /* Spacing system */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://cdn.example.com/proxima-nova-regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://cdn.example.com/proxima-nova-semibold.woff2') format('woff2');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('https://cdn.example.com/proxima-nova-bold.woff2') format('woff2');
+    font-weight: 700;
+  }
+  
+  body {
+    font-family: 'Proxima Nova', sans-serif;
+    background-color: var(--deep-navy);
+    color: var(--light-slate);
+    line-height: 1.6;
+    padding: var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(90deg, var(--bright-teal), #f57dff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: var(--space-lg) 0 var(--space-md);
+    position: relative;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--bright-teal);
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+    border: 2px solid var(--bright-teal);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.16);
+  }
+  
+  nav {
+    display: flex;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    color: var(--light-slate);
+    text-decoration: none;
+    font-weight: 600;
+    padding: var(--space-xs) 0;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--bright-teal);
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover::before,
+  nav a.current-page::before {
+    width: 100%;
+  }
+  
+  .card {
+    background: var(--slate-gray);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .note-card {
+    background: var(--slate-gray);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-left: 3px solid var(--bright-teal);
+    transition: all 0.3s ease;
+  }
+  
+  .note-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .note-title {
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .note-meta {
+    color: var(--light-slate);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xs);
+    display: flex;
+    gap: var(--space-sm);
+  }
+  
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: transparent;
+    color: var(--bright-teal) !important;
+    border: 1px solid var(--bright-teal);
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: var(--space-sm);
+  }
+  
+  .button:hover {
+    background: rgba(100, 255, 218, 0.1);
+  }
+  
+  ul {
+    list-style-position: inside;
+    margin-bottom: var(--space-md);
+  }
+  
+  li {
+    margin-bottom: var(--space-xs);
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: var(--space-xl);
+    color: var(--text-secondary);
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding: var(--space-lg);
+    }
+    
+    .profile-header {
+      align-items: center;
+      text-align: center;
+    }
+    
+    nav {
+      justify-content: center;
+    }
+  }
